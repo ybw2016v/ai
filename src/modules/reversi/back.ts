@@ -18,13 +18,6 @@ function getUserName(user) {
 	return user.name || user.username;
 }
 
-const titles = [
-	'さん', 'サン', 'ｻﾝ', '㌠',
-	'ちゃん', 'チャン', 'ﾁｬﾝ',
-	'君', 'くん', 'クン', 'ｸﾝ',
-	'先生', 'せんせい', 'センセイ', 'ｾﾝｾｲ'
-];
-
 class Session {
 	private account: User;
 	private game: any;
@@ -63,7 +56,7 @@ class Session {
 
 	private get userName(): string {
 		const name = getUserName(this.user);
-		return `?[${name}](${config.host}/@${this.user.username})${titles.some(x => name.endsWith(x)) ? '' : 'さん'}`;
+		return `?[${name}](${config.host}/@${this.user.username})`;
 	}
 
 	private get strength(): number {

@@ -1,37 +1,37 @@
 <h1><p align="center"><img src="./ai.svg" alt="藍" height="200"></p></h1>
-<p align="center">An Ai for Misskey. <a href="./torisetu.md">About Ai</a></p>
+<p align="center">An Ai for Misskey. <a href="使用教程.md">About Ai</a></p>
 
-## これなに
-Misskey用の日本語Botです。
+## 这是什么？
+这是方便Misskey使用的日语（本repo为中文优化）Bot。
 
-## インストール
-> Node.js と npm と MeCab (オプション) がインストールされている必要があります。
+## 安装
+> 您需要安装Node.js、npm和MeCab（可选）。
 
-まず適当なディレクトリに `git clone` します。
-次にそのディレクトリに `config.json` を作成します。中身は次のようにします:
+首先，做一个`git clone`到一个合适的目录。
+接下来，在该目录下创建一个`config.json`文件。 内容应如下：
 ``` json
 {
-	"host": "https:// + あなたのインスタンスのURL (末尾の / は除く)",
-	"i": "藍として動かしたいアカウントのアクセストークン",
-	"master": "管理者のユーザー名(オプション)",
-	"notingEnabled": "ランダムにノートを投稿する機能を無効にする場合は false を入れる",
-	"keywordEnabled": "キーワードを覚える機能 (MeCab が必要) を有効にする場合は true を入れる (無効にする場合は false)",
-	"chartEnabled": "チャート機能を無効化する場合は false を入れてください",
-	"reversiEnabled": "藍とリバーシで対局できる機能を有効にする場合は true を入れる (無効にする場合は false)",
-	"serverMonitoring": "サーバー監視の機能を有効にする場合は true を入れる (無効にする場合は false)",
-	"mecab": "MeCab のインストールパス (ソースからインストールした場合、大体は /usr/local/bin/mecab)",
-	"mecabDic": "MeCab の辞書ファイルパス (オプション)"
+	"host": "https:// + 您的实例的URL（最后不加/）",
+	"i": "您要运行的账户的访问令牌",
+	"master": "管理员的用户名（可选）",
+	"notingEnabled": "如果您希望禁用随机帖文功能，请输入false",
+	"keywordEnabled": "如果您想启用关键字记忆（MeCab是必需的），则为true（如果你想禁用它，则为false）",
+	"chartEnabled": "如果您希望禁用图表功能，请输入false",
+	"reversiEnabled": "如果您希望藍能下黑白棋，则请设为true（如果您想禁用它，就请设为false）",
+	"serverMonitoring": "如果您希望启用服务器监控功能，则请为true（如果您想禁用它，就请设为false）",
+	"mecab": "MeCab的安装路径（如果你从源码安装，通常是 /usr/local/bin/mecab） ",
+	"mecabDic": "MeCab字典文件路径（可选）"
 }
 ```
-`npm install` して `npm run build` して `npm start` すれば起動できます
+您可以通过运行`npm install`、`npm run build`和`npm start`来启动。
 
-## フォント
-一部の機能にはフォントが必要です。藍にはフォントは同梱されていないので、ご自身でフォントをインストールディレクトリに`font.ttf`という名前で設置してください。
+## 字体
+有些功能需要字体。 艾姬不附带字体，所以你应该自己在安装目录下安装字体，名称为`font.ttf`。
 
-## 記憶
-藍は記憶の保持にインメモリデータベースを使用しており、藍のインストールディレクトリに `memory.json` という名前で永続化されます。
+## 记忆
+藍使用内存数据库来保存记忆，它以`memory.json`为名持久地保存在藍的安装目录中。
 
-## ライセンス
+## 开源许可证
 MIT
 
 ## Awards

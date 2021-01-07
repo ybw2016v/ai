@@ -110,8 +110,8 @@ export default class extends Module {
 			return;
 		}
 
-		const done = msg.includes(['done', 'やった', 'やりました', 'はい']);
-		const cancel = msg.includes(['やめる', 'やめた', 'キャンセル']);
+		const done = msg.includes(['done', '完成', '好了']);
+		const cancel = msg.includes(['cancel', '取消', '算了', 'T', '烦']);
 
 		if (done || cancel) {
 			this.unsubscribeReply(key);

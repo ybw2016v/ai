@@ -3,8 +3,8 @@ import { hankakuToZenkaku, katakanaToHiragana } from './japanese';
 export default function(text: string, words: (string | RegExp)[]): boolean {
 	if (text == null) return false;
 
-	text = katakanaToHiragana(hankakuToZenkaku(text));
-	words = words.map(word => typeof word == 'string' ? katakanaToHiragana(word) : word);
+	// text = katakanaToHiragana(hankakuToZenkaku(text));
+	// words = words.map(word => typeof word == 'string' ? katakanaToHiragana(word) : word);
 
 	return words.some(word => {
 		/**
