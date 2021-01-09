@@ -57,7 +57,7 @@ export default class extends Module {
 
 	@autobind
 	private async mentionHook(msg: Message) {
-		if (msg.includes(['迷路'])) {
+		if (msg.includes(['迷路','迷宫'])) {
 			let size: string | null = null;
 			if (msg.includes(['娱乐', '照顾'])) size = 'veryEasy';
 			if (msg.includes(['简单', '轻松', '容易'])) size = 'easy';

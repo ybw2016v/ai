@@ -406,7 +406,7 @@ class Session {
 			? serifs.reversi.startedSettai(this.userName)
 			: serifs.reversi.started(this.userName, this.strength.toString());
 
-		return await this.post(`${text}\n→[観戦する](${this.url})`);
+		return await this.post(`${text}\n→[观战链接](${this.url})`);
 	}
 
 	/**

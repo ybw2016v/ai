@@ -3,7 +3,8 @@ import * as loki from 'lokijs';
 import Module from '@/module';
 import config from '@/config';
 import serifs from '@/serifs';
-import { mecab } from './mecab';
+import * as nodejieba from "nodejieba";
+// import { mecab } from './mecab';
 
 function kanaToHira(str: string) {
 	return str.replace(/[\u30a1-\u30f6]/g, match => {
@@ -47,8 +48,16 @@ export default class extends Module {
 		let keywords: string[][] = [];
 
 		for (const note of interestedNotes) {
-			const tokens = await mecab(note.text, config.mecab, config.mecabDic);
-			const keywordsInThisNote = tokens.filter(token => token[2] == '固有名词' && token[8] != null);
+			// const tokens = await mecab(note.text, config.mecab, config.mecabDic);
+			const tokens:string[][] = [];
+			const dogitems = nodejieba.tag(note.text)
+			for (const itemdog of dogitems) {
+				const sd=[itemdog.word,itemdog.tag]
+				tokens.push(sd);
+			}
+
+			// const keywordsInThisNote = tokens.filter(token => token[2] == '固有名词' && token[8] != null);
+			const keywordsInThisNote = tokens.filter(token => token[1] == 'ns' || token[1] == 'nr' || token[1] == 'nz'|| token[1] == 'nt');
 			keywords = keywords.concat(keywordsInThisNote);
 		}
 
@@ -71,7 +80,8 @@ export default class extends Module {
 				learnedAt: Date.now()
 			});
 
-			text = serifs.keyword.learned(keyword[0], kanaToHira(keyword[8]));
+			// text = serifs.keyword.learned(keyword[0], kanaToHira(keyword[8]));
+			text = serifs.keyword.learned(keyword[0], keyword[0]);
 		}
 
 		this.ai.post({
