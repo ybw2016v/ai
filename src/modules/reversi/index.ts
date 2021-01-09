@@ -91,7 +91,7 @@ export default class extends Module {
 		const form = [{
 			id: 'publish',
 			type: 'switch',
-			label: '允许艾姬发布游戏信息',
+			label: '要发布游戏消息吗？喵～',
 			value: true
 		}, {
 			id: 'strength',

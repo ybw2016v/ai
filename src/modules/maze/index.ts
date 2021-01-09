@@ -59,11 +59,11 @@ export default class extends Module {
 	private async mentionHook(msg: Message) {
 		if (msg.includes(['迷路','迷宫'])) {
 			let size: string | null = null;
-			if (msg.includes(['娱乐', '照顾'])) size = 'veryEasy';
+			if (msg.includes(['娱乐', '照顾','幼儿园'])) size = 'veryEasy';
 			if (msg.includes(['简单', '轻松', '容易'])) size = 'easy';
 			if (msg.includes(['难', '艰', '复杂', '离谱'])) size = 'hard';
 			if (msg.includes(['死', '鬼', '地狱', '变态'])) size = 'veryHard';
-			if (msg.includes(['艾姬']) && msg.includes(['自己'])) size = 'ai';
+			if (msg.includes(['猫猫']) && msg.includes(['自己'])) size = 'ai';
 			this.log('Maze requested');
 			setTimeout(async () => {
 				const file = await this.genMazeFile(Date.now(), size);
