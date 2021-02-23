@@ -12,7 +12,7 @@ export default class extends Module {
 	@autobind
 	public install() {
 		setInterval(() => {
-			if (Math.random() < 0.1) {
+			if (Math.random() < 0.06) {
 				this.post();
 			}
 		}, 1000 * 60 * 60);
@@ -25,7 +25,7 @@ export default class extends Module {
 
 	@autobind
 	private async post() {
-		const duration = 1000 * 60 * 15;
+		const duration = 1000 * 60 * 45;
 
 		const polls = [ // TODO: Extract serif
 			['不寻常的事情', '您认为哪一个是最不寻常的？'],
@@ -59,7 +59,7 @@ export default class extends Module {
 			['您可能在博物馆里找到的东西', '您认为您可能在博物馆里找到哪些东西？'],
 			['您可能在教室里找到的东西', '您认为您可能在教室里找到哪些东西？'],
 			['您想做什么表情符号', '您想做以下哪种表情符号？'],
-			['喵窝里可能有的东西', '您认为这些东西中哪些可能在喵窝里？'],
+			['家里可能有的东西', '您认为这些东西中哪些可能在家里？'],
 			['可燃垃圾', '您们认为以下哪些是可燃垃圾？'],
 			['最喜欢的饭团馅', '您最喜欢的饭团馅是什么？'],
 			['超级闪亮', '大家认为自己是不是超级闪亮呢？'],
@@ -146,7 +146,7 @@ export default class extends Module {
 			const choices = mostVotedChoices.map(choice => `「${choice.text}」`).join('和');
 			this.ai.post({ // TODO: Extract serif
 				cw: `${title}投票结果发表！`,
-				text: `結果は${mostVotedChoice.votes}票的${choices}胜出！`,
+				text: `结果是${mostVotedChoice.votes}票的${choices}胜出！`,
 				renoteId: noteId,
 			});
 		}

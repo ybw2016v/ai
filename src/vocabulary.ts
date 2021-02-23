@@ -2,7 +2,7 @@ import * as seedrandom from 'seedrandom';
 
 export const itemPrefixes = [
 	'铂金制的',
-	'信息按的',
+	'奇形怪状的',
 	'最新款的',
 	'古代的',
 	'手工制作的',

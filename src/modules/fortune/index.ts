@@ -15,8 +15,8 @@ export const blessing = [
 	'吉',
 	'中吉',
 	'小吉',
-	'凶',
-	'大凶',
+	'微吉',
+	'纳吉',
 ];
 
 export default class extends Module {
