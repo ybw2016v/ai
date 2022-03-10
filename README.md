@@ -24,7 +24,8 @@
 	"reversiEnabled": "如果您希望藍能下黑白棋，则请设为true（如果您想禁用它，就请设为false）",
 	"serverMonitoring": "如果您希望启用服务器监控功能，则请为true（如果您想禁用它，就请设为false）",
 	"mecab": "mecab改成nodejieba了，这一项没什么用了，可以随便填",
-	"mecabDic": "原来的MeCab字典文件路径，先在可以随便填"
+	"mecabDic": "原来的MeCab字典文件路径，先在可以随便填",
+	"memoryDir":"持久化目录"
 }
 ```
 您可以通过运行`npm install`、`npm run build`和`npm start`来启动。
