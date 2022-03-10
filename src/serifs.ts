@@ -456,6 +456,7 @@ export default {
 		],
 		want: item => `好想要${item}啊...`,
 		see: item => `出去散步的时候，我在路上看到了一些${item}！`,
+		expire: item => `${item}好像已过期...`,
 	},
 };
 

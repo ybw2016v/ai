@@ -67,14 +67,7 @@ export default class extends Module {
 
 		const poll = polls[Math.floor(Math.random() * polls.length)];
 
-		const choices = poll[0] === '什么东西超级闪亮' ? [
-			'是',
-			'差不多吧',
-			'都不是',
-			'宁可不同意',
-			'并非如此',
-			'不知道・不想回答',
-		] : [
+		const choices = [
 			genItem(),
 			genItem(),
 			genItem(),
