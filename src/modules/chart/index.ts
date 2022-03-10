@@ -55,7 +55,7 @@ export default class extends Module {
 			});
 
 			chart = {
-				title: `@${params.user.username}さんの投稿数`,
+				title: `@${params.user.username} 的帖文数量`,
 				datasets: [{
 					data: data.diffs.normal
 				}, {
@@ -72,7 +72,7 @@ export default class extends Module {
 			});
 
 			chart = {
-				title: `@${params.user.username}さんのフォロワー数`,
+				title: `@${params.user.username} 的跟随者数量`,
 				datasets: [{
 					data: data.local.followers.total
 				}, {
@@ -95,7 +95,7 @@ export default class extends Module {
 				}]
 			};
 		} else {
-			const suffixes = ['の売り上げ', 'の消費', 'の生産'];
+			const suffixes = ['的销量', '的消费', '的生产'];
 
 			const limit = 30;
 			const diffRange = 150;
@@ -136,15 +136,15 @@ export default class extends Module {
 
 	@autobind
 	private async mentionHook(msg: Message) {
-		if (!msg.includes(['チャート'])) {
+		if (!msg.includes(['图', '图表'])) {
 			return false;
 		} else {
 			this.log('Chart requested');
 		}
 
 		let type = 'random';
-		if (msg.includes(['フォロワー'])) type = 'followers';
-		if (msg.includes(['投稿'])) type = 'userNotes';
+		if (msg.includes(['跟随者', 'fo'])) type = 'followers';
+		if (msg.includes(['帖文', '投稿', '发文'])) type = 'userNotes';
 
 		const file = await this.genChart(type, {
 			user: msg.user

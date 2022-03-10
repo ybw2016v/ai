@@ -15,7 +15,7 @@ export default class extends Module {
 	}
 
 	/**
-	 * チョコ配り
+	 * 巧克力分发
 	 */
 	@autobind
 	private crawleValentine() {

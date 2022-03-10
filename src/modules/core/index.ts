@@ -4,7 +4,7 @@ import Message from '@/message';
 import serifs from '@/serifs';
 import { safeForInterpolate } from '@/utils/safe-for-interpolate';
 
-const titles = ['さん', 'くん', '君', 'ちゃん', '様', '先生'];
+const titles = ['桑', '酱', '喵', '大人'];
 
 export default class extends Module {
 	public readonly name = 'core';
@@ -33,7 +33,7 @@ export default class extends Module {
 	@autobind
 	private transferBegin(msg: Message): boolean  {
 		if (!msg.text) return false;
-		if (!msg.includes(['引継', '引き継ぎ', '引越', '引っ越し'])) return false;
+		if (!msg.includes(['接管', '继承', '移动', '转移'])) return false;
 
 		// メッセージのみ
 		if (!msg.isDm) {
@@ -69,13 +69,18 @@ export default class extends Module {
 	@autobind
 	private setName(msg: Message): boolean  {
 		if (!msg.text) return false;
-		if (!msg.text.includes('って呼んで')) return false;
-		if (msg.text.startsWith('って呼んで')) return false;
+		if (!msg.text.includes('叫我')) return false;
+		// if (msg.text.startsWith('叫我')) return false;
 
 		// メッセージのみ
 		if (!msg.isDm) return true;
 
-		const name = msg.text.match(/^(.+?)って呼んで/)![1];
+		if (msg.friend.love < 5) {
+			msg.reply(serifs.core.requireMoreLove);
+			return true;
+		}
+
+		const name = msg.text.match(/叫我(.+?)$/)![1];
 
 		if (name.length > 10) {
 			msg.reply(serifs.core.tooLong);
@@ -126,7 +131,7 @@ export default class extends Module {
 	@autobind
 	private version(msg: Message): boolean  {
 		if (!msg.text) return false;
-		if (!msg.or(['v', 'version', 'バージョン'])) return false;
+		if (!msg.or(['v', 'version', '版本'])) return false;
 
 		msg.reply(`\`\`\`\nv${this.ai.version}\n\`\`\``, {
 			immediate: true
@@ -144,10 +149,10 @@ export default class extends Module {
 			this.unsubscribeReply(key);
 		};
 
-		if (msg.text.includes('はい')) {
-			msg.friend.updateName(data.name + 'さん');
+		if (msg.text.includes('是') || msg.text.includes('好')) {
+			msg.friend.updateName(data.name + '桑');
 			done();
-		} else if (msg.text.includes('いいえ')) {
+		} else if (msg.text.includes('否') || msg.text.includes('不') || msg.text.includes('算了')) {
 			msg.friend.updateName(data.name);
 			done();
 		} else {

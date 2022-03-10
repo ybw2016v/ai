@@ -17,8 +17,8 @@ export default class extends Module {
 	@autobind
 	private async mentionHook(msg: Message) {
 		const secondsQuery = (msg.text || '').match(/([0-9]+)秒/);
-		const minutesQuery = (msg.text || '').match(/([0-9]+)分/);
-		const hoursQuery = (msg.text || '').match(/([0-9]+)時間/);
+		const minutesQuery = (msg.text || '').match(/([0-9]+)(:?分|分钟)/);
+		const hoursQuery = (msg.text || '').match(/([0-9]+)(:?时|小时)/);
 
 		const seconds = secondsQuery ? parseInt(secondsQuery[1], 10) : 0;
 		const minutes = minutesQuery ? parseInt(minutesQuery[1], 10) : 0;

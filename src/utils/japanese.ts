@@ -23,7 +23,7 @@ const kanaMap: string[][] = [
 ];
 
 /**
- * カタカナをひらがなに変換します
+ * 将片假名转换为平假名。
  * @param str カタカナ
  * @returns ひらがな
  */
@@ -35,7 +35,7 @@ export function katakanaToHiragana(str: string): string {
 }
 
 /**
- * ひらがなをカタカナに変換します
+ * 将平假名转换为片假名
  * @param str ひらがな
  * @returns カタカナ
  */
@@ -47,7 +47,7 @@ export function hiraganaToKatagana(str: string): string {
 }
 
 /**
- * 全角カタカナを半角カタカナに変換します
+ * 将全幅片假名转换为半幅片假名
  * @param str 全角カタカナ
  * @returns 半角カタカナ
  */
@@ -63,7 +63,7 @@ export function zenkakuToHankaku(str: string): string {
 };
 
 /**
- * 半角カタカナを全角カタカナに変換します
+ * 将半幅片假名转换为全幅片假名。
  * @param str 半角カタカナ
  * @returns 全角カタカナ
  */
